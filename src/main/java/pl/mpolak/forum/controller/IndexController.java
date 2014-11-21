@@ -11,7 +11,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-
+//Test
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome() {
         return "index";
