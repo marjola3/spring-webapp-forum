@@ -1,1 +1,1 @@
-<p>footer</p>
+<p class="text-center">Created by Mariola</p>
