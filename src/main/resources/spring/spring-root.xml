@@ -4,4 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
               http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+       <beans profile="development">
+              <import resource="classpath:spring/store/spring-data-dev.xml"/>
+       </beans>
+
+       <beans profile="production">
+              <import resource="classpath:spring/store/spring-data-prod.xml"/>
+       </beans>
+
 </beans>

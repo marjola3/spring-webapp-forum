@@ -10,6 +10,9 @@
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
+        <spring-security.version>3.2.5.RELEASE</spring-security.version>
+        <spring-data.version>1.7.0.RELEASE</spring-data.version>
+        <hibernate.version>4.3.7.Final</hibernate.version>
         <apache.tiles.version>3.0.5</apache.tiles.version>
     </properties>
 
@@ -34,21 +37,27 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
         </dependency>
 
+        <!-- Hibernate -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
-            <scope>provided</scope>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!-- Apache Tiles -->
@@ -64,6 +73,19 @@
             <version>${apache.tiles.version}</version>
         </dependency>
 
+        <!-- Database -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.2-1002-jdbc4</version>
+        </dependency>
+
         <!-- JSTL -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -77,6 +99,19 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
