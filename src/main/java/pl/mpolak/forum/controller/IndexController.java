@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping(value = "/")
 public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
