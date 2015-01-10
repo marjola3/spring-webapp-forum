@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-               http://www.springframework.org/schema/beans/spring-beans.xsd">
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/data/jpa
+               http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <jpa:repositories base-package="pl.mpolak.forum.repository"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="jdbc:postgresql://localhost:5432/java_blogs"/>
+        <property name="username" value="postrgres"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="packagesToScan" value="pl.mpolak.forum.entity"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+        </property>
+        <property name="jpaProperties">
+            <map>
+                <entry key="hibernate.show_sql" value="true"/>
+                <entry key="hibernate.hbm2ddl.auto" value="create"/>
+            </map>
+        </property>
+    </bean>
+
+    <tx:annotation-driven/>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 
 </beans>
