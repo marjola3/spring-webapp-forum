@@ -13,9 +13,9 @@
     <jpa:repositories base-package="pl.mpolak.forum.repository"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="jdbc:postgresql://localhost:5432/java_blogs"/>
-        <property name="username" value="postrgres"/>
-        <property name="password" value=""/>
+        <property name="url" value="${database.prod.url}"/>
+        <property name="username" value="${database.prod.user}"/>
+        <property name="password" value="${database.prod.password}"/>
     </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -26,8 +26,8 @@
         </property>
         <property name="jpaProperties">
             <map>
-                <entry key="hibernate.show_sql" value="true"/>
-                <entry key="hibernate.hbm2ddl.auto" value="create"/>
+                <entry key="${hibernate.show_sql.prod}" value="true"/>
+                <entry key="${hibernate.hbm2ddl.auto.prod}" value="create"/>
             </map>
         </property>
     </bean>
