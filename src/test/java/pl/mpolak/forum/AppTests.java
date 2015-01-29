@@ -17,7 +17,12 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/web-mvc-config.xml")
+@ContextConfiguration({
+        "file:src/main/webapp/WEB-INF/spring/web-mvc-config.xml",
+        "file:src/main/resources/spring/spring-root.xml",
+        "file:src/main/resources/spring/spring-security.xml",
+        "file:src/main/resources/spring/store/spring-data-dev.xml"
+})
 public class AppTests {
 
     private MockMvc mockMvc;
@@ -36,6 +41,7 @@ public class AppTests {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
+        // ok
     }
 
 }

@@ -25,8 +25,8 @@
         </property>
         <property name="jpaProperties">
             <map>
-                <entry key="${hibernate.show_sql.dev}" value="true"/>
-                <entry key="${hibernate.hbm2ddl.auto.dev}" value="create"/>
+                <entry key="hibernate.show_sql" value="${hibernate.show_sql.dev}"/>
+                <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto.dev}"/>
             </map>
         </property>
     </bean>
