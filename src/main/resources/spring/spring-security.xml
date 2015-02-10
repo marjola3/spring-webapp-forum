@@ -7,10 +7,10 @@
                    http://www.springframework.org/schema/security
                    http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http>
-        <intercept-url pattern="/**" access="ROLE_USER"/>
-        <form-login/>
-        <logout/>
+    <http use-expressions="true">
+        <intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+        <http-basic/>
+        <logout logout-url="/logout"/>
     </http>
 
     <authentication-manager alias="manager">
