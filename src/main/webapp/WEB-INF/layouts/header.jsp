@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -14,18 +15,24 @@
             <a class="navbar-brand" href="#">Blog forum</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" role="form">
-                <security:authorize access="!isAuthenticated()">
+            <security:authorize access="!isAuthenticated()">
+                <form class="navbar-form navbar-right" role="form"
+                      action="<spring:url value="/j_spring_security_check"/>" method="post">
                     <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
+                        <input type="text" name="j_username" placeholder="Login" class="form-control" required
+                               autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Hasło" class="form-control">
+                        <input type="password" name="j_password" placeholder="Hasło" class="form-control" required>
                     </div>
                     <button type="submit" class="btn btn-success">Zaloguj</button>
-                </security:authorize>
-                <a class="btn btn-success" href="/logout">Wyloguj</a>
-            </form>
+                </form>
+            </security:authorize>
+            <security:authorize access="isAuthenticated()">
+                <div class="navbar-form navbar-right">
+                    <a class="btn btn-success" href="<spring:url value="/logout"/>">Wyloguj</a>
+                </div>
+            </security:authorize>
         </div>
         <!--/.navbar-collapse -->
     </div>
