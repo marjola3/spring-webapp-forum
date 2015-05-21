@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Blog forum</a>
+            <a class="navbar-brand" href="<spring:url value="/"/>">Info forum</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <security:authorize access="!isAuthenticated()">
@@ -40,12 +40,10 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Info forum</h1>
+        <h2>Wiadomości ze świata</h2>
 
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
+        <p>Tutaj będą najważniejsze wiadomości</p>
 
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Zarejestruj</a></p>
+        <p><a class="btn btn-primary btn-lg" href="<spring:url value="/register"/>" role="button">Zarejestruj</a></p>
     </div>
 </div>
