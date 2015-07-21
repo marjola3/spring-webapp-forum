@@ -19,6 +19,8 @@ public class UserEntity {
 
     private String password;
 
+    private String confirmPassword;
+
     private String email;
 
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -55,6 +57,14 @@ public class UserEntity {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String passwordAgain) {
+        this.confirmPassword = passwordAgain;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -85,5 +95,19 @@ public class UserEntity {
 
     public void setEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", email='" + email + '\'' +
+                ", created=" + created +
+                ", lastLoginDate=" + lastLoginDate +
+                ", isEnabled=" + isEnabled +
+                '}';
     }
 }

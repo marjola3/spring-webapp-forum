@@ -33,4 +33,12 @@ public class UserRoleEntity {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+    @Override
+    public String toString() {
+        return "UserRoleEntity{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                '}';
+    }
 }
