@@ -13,4 +13,8 @@
        <put-attribute name="body" value="/WEB-INF/pages/index.jsp"/>
    </definition>
 
+    <definition name="register" extends="common">
+        <put-attribute name="body" value="/WEB-INF/pages/register.jsp"/>
+    </definition>
+
 </tiles-definitions>

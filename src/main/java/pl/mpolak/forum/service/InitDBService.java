@@ -7,6 +7,7 @@ import pl.mpolak.forum.entity.UserEntity;
 import pl.mpolak.forum.repository.UserRepository;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Date;
 
 
