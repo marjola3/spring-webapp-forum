@@ -1,6 +1,9 @@
 package pl.mpolak.forum.entity;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -14,13 +17,18 @@ public class UserEntity {
     @GeneratedValue
     private int id;
 
+    @Size(min = 3, message = "Login powinien zawieraæ minimum 3 znaki")
     @Column(unique = true)
     private String login;
 
+    @Size(min = 3, message = "Has³o powinno zawieraæ minimum 3 znaki")
     private String password;
 
+    @Size(min = 3, message = "Has³o powinno zawieraæ minimum 3 znaki")
     private String confirmPassword;
 
+    @Email(message = "E-mail jest nieprawid³owy")
+    @Size(min = 1, message = "E-mail jest wymagany")
     private String email;
 
     @Temporal(value = TemporalType.TIMESTAMP)

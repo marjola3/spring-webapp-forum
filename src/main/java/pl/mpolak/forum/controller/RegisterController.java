@@ -2,10 +2,13 @@ package pl.mpolak.forum.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.mpolak.forum.entity.UserEntity;
+
+import javax.validation.Valid;
 
 /**
  * Author: Mariola
@@ -21,9 +24,12 @@ public class RegisterController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("user") UserEntity user) {
-        System.out.println(user);
-        return "register";
+    public String registerUser(@Valid @ModelAttribute("user") UserEntity user, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "register";
+        }
+        //TODO zapisanie u¿ytkownika
+        return "redirect:/register?registered=true";
     }
 
 }

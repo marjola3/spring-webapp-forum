@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,6 +7,12 @@
 </head>
 <body>
 
+
+<c:if test="${param.registered eq true}">
+    <div class="alert alert-success">
+        Rejestracja została zakończona pomyślnie
+    </div>
+</c:if>
 
 <div class="container">
     <div class="row clearfix">
