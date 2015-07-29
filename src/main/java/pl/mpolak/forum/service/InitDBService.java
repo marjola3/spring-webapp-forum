@@ -26,7 +26,7 @@ public class InitDbService {
         UserEntity user = new UserEntity();
         user.setLogin("user1");
         user.setPassword("pass");
-        user.setEmail("mail");
+        user.setEmail("mail@gmail.com");
         user.setCreated(new Date());
         user.setLastLoginDate(new Date());
         user.setEnabled(true);
